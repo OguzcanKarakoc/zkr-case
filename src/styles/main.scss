@@ -1,0 +1,95 @@
+@use "./settings";
+@use "vuetify";
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-Italic.woff2") format("woff2");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-BoldItalic.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ES Klarheit Kurrent";
+    src: url("ESKlarheitKurrent-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+* {
+    font-family: "ES Klarheit Kurrent", sans-serif;
+}
+
+.v-btn {
+    text-transform: inherit !important; // todo :: remove important
+
+    &.v-btn--variant-outlined {
+        border: 2px solid rgb(var(--v-theme-primary));
+        color: rgb(var(--v-theme-on-primary));
+        background-color: rgb(var(--v-theme-primary));
+
+        &:hover {
+            background-color: transparent;
+            color: rgb(var(--v-theme-primary));
+        }
+    }
+}
+
+.v-card {
+    .v-card-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        white-space: normal;
+    }
+
+    .v-card-subtitle {
+        opacity: 0.5;
+    }
+
+    .v-list-item__prepend {
+        display: contents;
+    }
+
+    /* a {
+        color: rgb(var(--v-theme-primary));
+        text-decoration: none;
+        transition: all .2s ease-in-out;
+        line-height: 1.5rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    } */
+}
