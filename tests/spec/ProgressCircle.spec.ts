@@ -1,4 +1,4 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount, shallowMount } from "@vue/test-utils";
 import ProgressCircle from "../../src/components/ProgressCircle.vue";
 import { describe, expect, it } from "vitest";
 import { createVuetify } from "vuetify";
@@ -10,7 +10,10 @@ const vuetify = createVuetify({
   directives,
 });
 
-describe("ProgressCircle", () => {
+global.ResizeObserver = require('resize-observer-polyfill')
+
+describe("ProgressCircle.vue Test", () => {
+
   it("renders the correct percentage", () => {
     const percentage = 50;
     const wrapper = shallowMount(ProgressCircle, {
