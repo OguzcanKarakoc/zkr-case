@@ -54,15 +54,10 @@ const units = "metric";
  * @returns {Promise<WeatherData>} - Weather data
  */
 export const fetchWeather = async (city: string): Promise<WeatherData> => {
-  try {
-    const url = new URL(apiUrl);
-    url.searchParams.append("q", city);
-    url.searchParams.append("appid", appId);
-    url.searchParams.append("units", units);
-    const response = await apiService.get<WeatherData>(url.toString());
-    return response.data;
-  } catch (error) {
-    console.error("Error:", error);
-    throw error;
-  }
+  const url = new URL(apiUrl);
+  url.searchParams.append("q", city);
+  url.searchParams.append("appid", appId);
+  url.searchParams.append("units", units);
+  const response = await apiService.get<WeatherData>(url.toString());
+  return response.data;
 };
