@@ -11,5 +11,5 @@
 
 @use 'vuetify/settings' with (
   $list-padding: 0,
-  $button-padding-ratio: 1.5
+  $progress-linear-indeterminate-animation-duration: 1.5s,
 );

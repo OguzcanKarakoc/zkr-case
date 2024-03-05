@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           <tr v-for="item in filteredCountries" :key="item.name.common">
-            <td>
+            <td class="w-auto">
               <v-img
                 :src="item.flags.png"
                 width="30"
@@ -36,7 +36,7 @@
                 contain
               ></v-img>
             </td>
-            <td>
+            <td class="w-100">
               <v-btn
                 variant="plain"
                 class="px-0"
@@ -58,23 +58,18 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue";
-import { Countries, fetchCountries } from "@/apis/RestContriesApi";
+import { useCountriesStore } from "../store/countries";
 
+const countriesStore = useCountriesStore();
 const countryName = ref("");
-const loading = ref(false);
-const countries = ref<Countries[]>([]);
 
-onMounted(async () => {
-  loading.value = true;
-  try {
-    countries.value = await fetchCountries();
-  } finally {
-    loading.value = false;
-  }
+onMounted(() => {
+  countriesStore.fetchCountries();
 });
 
+const loading = computed(() => countriesStore.loading);
 const filteredCountries = computed(() => {
-  return countries.value.filter((country) => {
+  return countriesStore.countries.filter((country) => {
     return country.name.common
       .toLowerCase()
       .includes(countryName.value.toLowerCase());
